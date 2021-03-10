@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}DETAIL{% endblock title %}
+
+{% block content %}
+  <h1>DETAIL</h1>
+  <h2>제목: {{ article.title }}</h2>
+  <p>내용: {{ article.content }}</p>
+   <a href="{% url 'index'%}">INDEX</a>
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}ping{% endblock title%}
+
+{% block content %}
+<h1>ping</h1>
+
+<!--
+  action -> 수신인(목적지)
+  method -> 공개 / 비공개 여부
+    - GET: 모든 데이터가 URL에 공개 되어 전송
+    - POST: 데이터가 URL에 공개되지 않음 
+
+  name -> name이 있어야 key, value가 된다
+  없으면 안넘어감
+-->
+
+<form action="{% url 'pong' %}" method="GET">
+  <label for="kor-name">한글이름</label>
+  <input type="text" name="kor-name" id="kor-name">
+  
+  <label for="eng-name">English name</label>
+  <input type="text" name="eng-name" id="eng-name">
+
+  <input type="submit" value="전송!"> 
+</form>
+
+{% comment %} for django_01_homework {% endcomment %}
+{% comment %} <form action="{% url 'pong' %}" method="">
+  <label for="title">Titel: </label>
+  <input type="text" name="title" id="title">
+  
+  <label for="content">Content: </label>
+  <input type="text" name="content" id="content">
+
+  <label for="my-site">My-Site: </label>
+  <input type="text" name="my-site" id="my-site">
+
+  <input type="submit" value="전송!"> 
+</form> {% endcomment %}
+
+{% endblock content %}
+
+

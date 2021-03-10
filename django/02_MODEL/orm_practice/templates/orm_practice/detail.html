@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail Page{% endblock title %}
+
+{% block body %}
+  <h1>This is Detail Page</h1>
+  <h2>{{ student.id }} => {{ student.name }}</h2>
+  <h3>{{ student.age }} | {{ student.major }}</h3>
+  <p>{{ student.hobby }}</p>
+  <a href="{% url 'index'%}" class="btn btn-primary">INDEX</a>
+{% endblock body %}
