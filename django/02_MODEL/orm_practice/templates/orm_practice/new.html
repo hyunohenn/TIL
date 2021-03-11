@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Detail Page{% endblock title %}
+{% block title %}NEW Page{% endblock title %}
 
 {% block body %}
-<form action="{% url 'create' %}" method="GET">
+<form action="{% url 'create' %}" method="POST">
+  {% csrf_token %}
   <div>
     name: <input type="text" name="name">
   </div>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Page{% endblock title %}
+
+{% block body %}
+<h1>This is Edit page</h1>
+<form action="{% url 'update' student.pk %}" method="POST">
+  <!-- 모든 POST 요청은 csfr_token이 필요하다 -->
+  {% csrf_token %}
+  <div>
+    name: <input type="text" name="name" value="{{ student.name }}">
+  </div>
+  <div>
+    age: <input type="text" name="age" value="{{ student.age }}">
+  </div>
+  <div>
+    major: <input type="text" name="major" value="{{ student.major }}"> 
+  </div>
+  hobby: <textarea name="hobby" id="" cols="30" rows="5">{{ student.hobby }}</textarea>
+
+  <div>
+    <input type="submit" class='btn btn-primary'>
+  </div>
+</form>
+{% endblock body %}
