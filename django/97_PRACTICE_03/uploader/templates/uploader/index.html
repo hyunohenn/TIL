@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'uploader/css/main.css' %}">
+{% endblock head %}
+
+{% block content %}
+<h1>Index page</h1>
+
+<img src="https://lh3.googleusercontent.com/proxy/SPML3EMeOX8Z_e1zQgqoU1clibUWNYUW0ybyVU52C3APlqHdscHqOmIqlDMUprJHIiQZEEti7TW2ojRrV5sEIKt4JvGNejgw04_s2caxfy_TS75QLdIS1PYvi0RcMRbp1-2PshBRlMHs9Q22gk0iTZ_0xP5fc8gQUjdpiw0QxboLMjs9Tibz6NBlyWuFihcTZy5IV-0ykcBVfVZHo803nDGtmn5SijpDsmG_KOlr1PvFnRvvJDcYCOSId4JlOMQ5ggPwG6pc_z0yWQutJ7MEu-bb880BMT4W83br" alt="lomon">
+<img src="/static/uploader/images/lemon.png" alt="lemon">  
+{% comment %} 이렇게는 잘 안쓰고 앞으로는 아래와 같이 쓴다 {% endcomment %}
+<img src="{% static 'uploader/images/lemon.png' %}" alt="lemon">
+
+{% endblock content %}
+
+
+

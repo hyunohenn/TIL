@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ reservation.name }}</h1>
+  <p>{{ reservation.number }}</p>
+  <a href="{% url 'board:edit' reservation.pk %}">Edit</a>
+  <form action="{% url 'board:delete' reservation.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="삭제" onclick="return confirm('ㄹㅇ')">
+  </form>
+{% endblock content %}
