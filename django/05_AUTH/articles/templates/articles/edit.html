@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit</h1>
+{% comment %} 
+1. 이 html 을 받아보는 중이라면, request => GET /articles/edit/
+2. 아래 제출버튼을 누른다면, action 은 자동으로 위의 URL을 사용 + method POST
+   결론: request => POST /articles/edit/
+{% endcomment %}
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit">
+</form>
+{% endblock content %}

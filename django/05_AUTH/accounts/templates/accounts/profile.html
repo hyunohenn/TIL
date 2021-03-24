@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ user_profile }}</h1>
+<!-- 
+  /accounts/profile/Prodo/ => url 
+  => user_profile = <User:neo> 캑체
+-->
+<!-- request.user == user -->
+<ul>
+  <li>Email: {{user_profile.email}}</li>
+  <li>Name: {{user_profile.last_name}}  {{user_profile.first_name}}</li>
+  <li>Address: {{user_profile.address}}</li>
+</ul>
+
+
+{% if user == user_profile %}
+<div>
+  <form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-primary">정보 수정</button>
+  </form>
+
+  <a class="btn btn-primary" href="{% url 'accounts:change_password' %}">비밀번호 변경</a>
+
+
+  <hr>
+  
+  <form action="{% url 'accounts:withdraw' %}" method="POST" class="d-inline-block">
+    {% csrf_token %}
+    {% comment %} <input type="submit" class="btn btn-danger" value="회원 탈퇴"> {% endcomment %}
+    <button class="btn btn-danger" onclick="return confirm('ㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜ')">회원 탈퇴</button>
+  </form>
+
+</div>
+{% endif %}
+{% endblock content %}
+
+
+{% comment %} 버튼타입은 form 태그 안에서는 input과 완전 동일하게 작동한다. form 태그 밖에서는 기능 없음 {% endcomment %}
