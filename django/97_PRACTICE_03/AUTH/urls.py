@@ -1,4 +1,4 @@
-"""mypjt URL Configuration
+"""AUTH URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -15,14 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# dev 모드에서는 사용자 업로드 미디어를 서빙하기 위해 아래의 코드가 필요합니다. 
-from django.conf.urls.static import static
-from django.conf import settings
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('uploader/', include('uploader.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # 얘 리스트임
-# DEBUG = False일땐 빈 리스트가 된다
-
+    path('accounts/', include('accounts.urls')),
+]
