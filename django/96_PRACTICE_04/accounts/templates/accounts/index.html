@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>INDEX</h1>
+  {% for user in users %}
+    <ul>
+      <li>{{ user.username  }}</li>
+    </ul>
+  {% endfor %}
+  <p>총 유저의 수: {{ users.count }}</p>
+{% endblock content %}

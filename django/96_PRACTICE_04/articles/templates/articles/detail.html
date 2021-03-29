@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Detail</h1>
+
+<h3>{{ article.title }}</h3>
+<p>{{ article.content }}</p>
+
+
+<form action="{% url 'articles:update_article' article.pk %}">
+  <input type="submit" class="btn btn-primary" value="Modify Aricle">
+</form>
+
+<form action="{% url 'articles:delete_article' article.pk %}" method="POST">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-danger" value="Delete Aricle">
+</form>
+
+<hr>
+<p>댓글은 총 {{ article.comment_set.all|length }}개 입니다.</p>
+
+{% for comment in comments %}
+  <ul>
+   <li>{{ comment.content }}</li>
+  </ul>
+  <form action="{% url 'articles:delete_comment' article.pk comment.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="delete" class="btn btn-danger">
+  </form>
+{% endfor %}
+
+<h3>댓글 작성</h3>
+<form action="{% url 'articles:create_comment' article.pk %}" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value='Write' clas='btn btn-secondary'>
+</form>
+
+
+{% endblock content %}
